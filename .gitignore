@@ -8,13 +8,12 @@
 amplify
 public
 secret
-src
 # testing
 /coverage
 
 # production
 /build
-
+src
 # misc
 .DS_Store
 .env.local
