@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "/smartland/static/css/main.6c757314.css",
-    "main.js": "/smartland/static/js/main.5db8bc29.js",
+    "main.js": "/smartland/static/js/main.86ce7715.js",
     "static/media/fontawesome-webfont.svg?v=4.7.0": "/smartland/static/media/fontawesome-webfont.c1e38fd9e0e74ba58f7a.svg",
     "static/media/ElegantIcons.svg": "/smartland/static/media/ElegantIcons.a3709f859357b50798d9.svg",
     "static/media/et-line.svg": "/smartland/static/media/et-line.613c7311d2d5a1dd7e49.svg",
@@ -22,10 +22,10 @@
     "static/media/slick.woff": "/smartland/static/media/slick.295183786cd8a1389865.woff",
     "index.html": "/smartland/index.html",
     "main.6c757314.css.map": "/smartland/static/css/main.6c757314.css.map",
-    "main.5db8bc29.js.map": "/smartland/static/js/main.5db8bc29.js.map"
+    "main.86ce7715.js.map": "/smartland/static/js/main.86ce7715.js.map"
   },
   "entrypoints": [
     "static/css/main.6c757314.css",
-    "static/js/main.5db8bc29.js"
+    "static/js/main.86ce7715.js"
   ]
 }
