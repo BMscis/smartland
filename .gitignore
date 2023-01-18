@@ -13,7 +13,6 @@ secret
 
 # production
 /build
-src
 # misc
 .DS_Store
 .env.local
@@ -36,7 +35,6 @@ amplify/backend/.temp
 build/
 dist/
 node_modules/
-aws-exports.js
 awsconfiguration.json
 amplifyconfiguration.json
 amplifyconfiguration.dart
@@ -46,3 +44,11 @@ amplifytools.xcconfig
 .secret-*
 **.sample
 #amplify-do-not-edit-end
+
+reach
+src/smartContract/.reach
+src/smartContract/Dockerfile
+src/smartContract/index.mjs
+src/smartContract/index.rsh
+src/smartContract/package.json
+src/ui-components/*
