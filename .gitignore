@@ -6,7 +6,6 @@
 .pnp.js
 .vscode
 amplify
-public
 secret
 # testing
 /coverage
