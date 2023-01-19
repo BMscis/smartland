@@ -708,6 +708,9 @@ p.lead {
       color: $color;
     }
   }
+  #home.dropdown-toggle::after{
+    content: "";
+  }
   .dropdown-toggle::after{
     font-family: FontAwesome;
     content: "\f078";
@@ -3128,7 +3131,7 @@ i.font60 {
     border-radius: 30px;
     -moz-border-radius: 30px;
     -webkit-border-radius: 30px;
-    border: solid 2px $color;
+    // border: solid 2px $color;
     z-index: 1;
     color: $white;
     .Clock-days{
@@ -3339,6 +3342,9 @@ i.font60 {
         transform: scale(1.2);
       }
     }
+}
+.nft_pic_wrap{
+  height: 50vh;
 }
 .nft_pic_info {
     position: absolute;

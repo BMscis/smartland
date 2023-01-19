@@ -9,8 +9,12 @@ const fileStyle = {
 }
 const inputStyle = {
     maxWidth: "100px",
-    position: "absolute",
     opacity: 0,
+}
+const artistBox = {
+    display: "flex",
+    alignItems: "center",
+    justifyContent: "center",
 }
 const iconStyle = {
     position:"relative",
@@ -97,7 +101,7 @@ export default function Artist({ parent }) {
                         <h4>Artist</h4>
                     </span>
                     {<div className="nft__item_price">
-                        <div>
+                        <div id="artist_box" style={artistBox}>
                             <input type="text" value={aName} style={inputStyle}
                                 onChange={(e) => {setName(e.target.value)}}
                             />

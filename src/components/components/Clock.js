@@ -1,5 +1,13 @@
 import React, { Component } from "react";
 
+const stillActive = {
+  border: "solid 2px #18d8b3",
+  borderRadius: "30px"
+}
+const timeLaps = {
+  border: "solid 2px #d81818",
+  borderRadius: "30px"
+}
 class Clock extends Component {
   constructor(props) {
     super(props);
@@ -37,7 +45,7 @@ class Clock extends Component {
   }
   render() {
     return (
-      <div>
+      <div id="still_active" style={this.state.days > 0 ? stillActive : timeLaps}>
         <div className="Clock-days">{this.leading0(this.state.days)}d</div>
         <div className="Clock-hours">
           {this.leading0(this.state.hours)}h

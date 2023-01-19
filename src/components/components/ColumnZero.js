@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import styled from "styled-components";
-import { withRouter } from "../../utils";
+import { withRouter,getTimeUntil } from "../../utils";
 import Clock from "./Clock";
 
 const Outer = styled.div`
@@ -231,11 +231,17 @@ componentDidMount(){
                             <h4>{nft.title}</h4>
                         </span>
                         <div className="nft__item_price">
-                            {nft.price}<span>{nft.bid}</span>
+                            {nft.price}<span>ALGOS</span>
                         </div>
-                        <div className="nft__item_action">
+                        {getTimeUntil(nft.deadline) ? (
+                            <div className="nft__item_action">
                             <span onClick={()=> this.props.navigate(`/ItemDetail/${nft.id}`)}>Buy Ticket</span>
+                            </div>
+                        ):(
+                            <div className="nft__item_action">
+                        <span >Sold Out</span>
                         </div>
+                        )}
                         <div className="nft__item_like">
                             <i className="fa fa-heart"></i><span>{nft.likes}</span>
                         </div>                            

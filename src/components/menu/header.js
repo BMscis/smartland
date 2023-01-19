@@ -198,7 +198,7 @@ const Header = function () {
                   <div className='menu'>
                     <div className='navbar-item'>
                       <div ref={ref}>
-                        <div className="dropdown-custom dropdown-toggle btn"
+                        <div id="home" className="dropdown-custom dropdown-toggle btn"
                           onClick={() => {
                             btn_icon(false)
                             navigate('/')
@@ -304,7 +304,7 @@ const Header = function () {
                 <div className='menu'>
                   <div className='navbar-item'>
                     <div ref={ref}>
-                      <div className="dropdown-custom dropdown-toggle btn"
+                      <div id="home" className="dropdown-custom dropdown-toggle btn"
                         onClick={() => {
                           btn_icon(false)
                           navigate('/')
