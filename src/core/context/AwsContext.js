@@ -1,25 +1,37 @@
 import { Auth, DataStore, Hub } from "aws-amplify";
 import { createContext, useContext, useEffect, useState } from "react";
+import { PeraWalletConnect } from "@perawallet/connect";
 import { AUTHOR, AVATAR, Itemtype, Nftcategory, Nftcollectiontype, NFTS, Nftstatus, OWNER } from "../../models"
 import { loadStdlib } from '@reach-sh/stdlib'
-import { ALGO_MyAlgoConnect as MyAlgoConnect } from '@reach-sh/stdlib';
-import { ALGO_WalletConnect as WalletConnect } from '@reach-sh/stdlib';
+import MyAlgoConnect from '@randlabs/myalgo-connect';
+import WalletConnect from "@walletconnect/client";
+import QRCodeModal from "algorand-walletconnect-qrcode-modal";
+import { ALGO_MakeWalletConnect as MakeWalletConnect } from '@reach-sh/stdlib';
+import { ALGO_MakePeraConnect as MakePeraConnect } from '@reach-sh/stdlib';
 import auth from "../auth";
-const stdlib = loadStdlib((process.env.REACH_CONNECTOR_MODE = "ALGO"))
 export const AwsContext = createContext();
-const setMode = (mode) => {
+const setMode = (mode,stl) => {
+  delete window.algorand
   switch (mode) {
     case "WalletConnect":
-      stdlib.setWalletFallback(stdlib.walletFallback({
-        providerEnv: "TestNet", WalletConnect
+      stl.setWalletFallback(stl.walletFallback({
+        providerEnv: "TestNet", WalletConnect:MakeWalletConnect(
+          WalletConnect,QRCodeModal
+        )
       }));
-      return "ALGO"
+      break
     case "MyAlgo":
-      stdlib.setWalletFallback(stdlib.walletFallback({
+      stl.setWalletFallback(stl.walletFallback({
         providerEnv: "TestNet", MyAlgoConnect
       }));
-      return "ALGO"
+      break
+    case "Pera":
+      stl.setWalletFallback(stl.walletFallback({
+        providerEnv: "TestNet", WalletConnect:MakePeraConnect(PeraWalletConnect)
+      }));
+      break
   }
+
 }
 export const AwsHook = () => useContext(AwsContext)
 export const AwsProvider = ({ children }) => {
@@ -29,6 +41,7 @@ export const AwsProvider = ({ children }) => {
   const [wallet, setWallet] = useState(null)
   const [user, setUser] = useState(null)
   const [errorState,setErrorState] = useState({state:false,error:""})
+  const [stdlib, setStdliB] = useState(null)
 
   // REACH CONTRACT
   async function getAuthors() {
@@ -36,8 +49,12 @@ export const AwsProvider = ({ children }) => {
     setAuthors(author)
   }
   async function connectWallet(mode) {
+
     // const {rpc, rpcCallbacks} = await mkRPC(opts);
-    const chain = setMode(mode)
+    const stdlib = loadStdlib((process.env.REACH_CONNECTOR_MODE = "ALGO"))
+    console.log({mode})
+    if(mode === "") return 
+    const chain = setMode(mode,stdlib)
     try {
       // const health = await rpc('/health')
       const acc = await stdlib.getDefaultAccount()
@@ -51,7 +68,9 @@ export const AwsProvider = ({ children }) => {
         "Main": acc
       }
       setWallet(newUser)
+      setStdliB(stdlib)
     } catch (error) {
+      console.log({error})
     }
   }
   async function getNFTS() {

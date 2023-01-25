@@ -1,16 +1,28 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import { AwsHook } from '../../core/context/AwsContext';
 
 
 function Wallet() {
     const { wallet, connectWallet } = AwsHook()
+    const [walletName, setWalletName] = useState("")
     useEffect(() => {
-    }, [wallet])
+        console.log({walletName})
+        connectWallet(walletName)
+    }, [walletName])
     return (
         <div className="row">
             <div className="col-lg-3 mb30">
                 <button className="box-url" onClick={() => {
-                    connectWallet("MyAlgo")
+                    setWalletName("Pera")
+                }}>
+                    <img src="./img/wallet/pera.png" alt="" className="mb20" />
+                    <h4>Pera Wallet</h4>
+                    <p>Open source protocol for connecting decentralised applications to mobile wallets.</p>
+                </button>
+            </div>
+            <div className="col-lg-3 mb30">
+                <button className="box-url" onClick={() => {
+                    setWalletName("MyAlgo")
                 }}>
                     <img src="./img/wallet/myalgo.png" alt="" className="mb20" />
                     <h4>MyAlgo Wallet</h4>
@@ -19,7 +31,7 @@ function Wallet() {
             </div>
             <div className="col-lg-3 mb30">
                 <button className="box-url" onClick={() => {
-                    connectWallet("WalletConnect")
+                    setWalletName("WalletConnect")
                 }}>
                     <img src="./img/wallet/4.png" alt="" className="mb20" />
                     <h4>WalletConnect</h4>

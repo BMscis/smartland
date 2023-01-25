@@ -5,7 +5,7 @@ import Artist from "./artist";
 import Clock from "../components/Clock";
 import Footer from '../components/footer';
 import { isMobile, SendToS3, withRouter } from "../../utils";
-import * as backend from "../../smartContract/index.main.mjs"
+import * as backend from "../../smartContract/build/index.main.mjs"
 import { createGlobalStyle } from "styled-components";
 import Loading from "../components/loading";
 import { ARTISTS, AVATAR, EVENTINFO, Itemtype, Nftcategory, Nftcollectiontype, NFTS, Nftstatus, OWNER } from "../../models";
