@@ -2445,7 +2445,7 @@ address {
 .d-create-file {
     padding: 50px;
     border-radius: 10px;
-    border: dashed 3px #dddddd;
+    // border: dashed 3px #dddddd;
     text-align: center;
     #get_file{
       margin: 0 auto;
@@ -3159,10 +3159,10 @@ i.font60 {
     cursor: pointer;
     position: absolute;
     display: inline-block;
-    width: 50px;
-    height: auto;
+    width: 48px;
+    height: 48px;
     background: $color;
-    margin-left: 10px;
+    // margin-left: 10px;
     margin-top: -3px;
     border-radius: 100% !important;
     z-index: 1;
@@ -3227,8 +3227,8 @@ i.font60 {
   .author_list_pp {
     position: absolute;
     display: inline-block;
-    width: 50px;
-    height: auto;
+    width: 48px;
+    height: 48px;
     margin-left: 10px;
     margin-top: -3px;
     cursor: pointer;
