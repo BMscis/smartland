@@ -4,7 +4,7 @@ import Footer from '../components/footer';
 import { createGlobalStyle } from 'styled-components';
 import { AwsContext } from '../../core/context/AwsContext';
 import { withProps } from '../../utils';
-import * as backend from '../../smartContract/build/index.main.mjs';
+import * as backend from '../../smartContract/index.main.mjs';
 import { AVATAR, BIDS, OWNER } from '../../models';
 import { UpdateAuthor, UpdateNFTS } from '../../core/store';
 // import Checkout from '../components/circleCheckout';
