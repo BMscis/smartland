@@ -1,8 +1,8 @@
-import React from "react";
-import PropTypes from "prop-types";
-import styled from "styled-components";
-import { animated, useTransition } from "@tim-soft/react-spring-web";
-import ButtonControl from "./ButtonControl";
+import React from 'react';
+import PropTypes from 'prop-types';
+import styled from 'styled-components';
+import { animated, useTransition } from '@tim-soft/react-spring-web';
+import ButtonControl from './ButtonControl';
 
 const ArrowButtonleft = ({ position, onClick, disabled }) => {
   const transitions = useTransition(!disabled, null, {
@@ -21,7 +21,7 @@ const ArrowButtonleft = ({ position, onClick, disabled }) => {
             zIndex: 999
           }}
         >
-          <Button className='btnLleft' position={position} type="button" onClick={onClick}>
+          <Button className="btnLleft" position={position} type="button" onClick={onClick}>
             <i className="fa fa-chevron-left"></i>
           </Button>
         </animated.div>
@@ -30,7 +30,6 @@ const ArrowButtonleft = ({ position, onClick, disabled }) => {
 };
 
 ArrowButtonleft.propTypes = {
- 
   onClick: PropTypes.func.isRequired,
   disabled: PropTypes.bool
 };

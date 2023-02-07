@@ -24,8 +24,5 @@
     "main.1968e57f.css.map": "/smartland/static/css/main.1968e57f.css.map",
     "main.7da96dc2.js.map": "/smartland/static/js/main.7da96dc2.js.map"
   },
-  "entrypoints": [
-    "static/css/main.1968e57f.css",
-    "static/js/main.7da96dc2.js"
-  ]
+  "entrypoints": ["static/css/main.1968e57f.css", "static/js/main.7da96dc2.js"]
 }

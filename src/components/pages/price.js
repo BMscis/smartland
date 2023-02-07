@@ -9,26 +9,25 @@ const GlobalStyles = createGlobalStyle`
   }
 `;
 
-const price= () => (
-<div>
-  <GlobalStyles/>
-    <section className='jumbotron breadcumb no-bg'>
-        <div className='mainbreadcumb'>
-          <div className='container'>
-            <div className='row m-10-hor'>
-              <div className='col-12 text-center'>
-                <h1>Pricing</h1>
-                <p>Anim pariatur cliche reprehenderit</p>
-              </div>
+const price = () => (
+  <div>
+    <GlobalStyles />
+    <section className="jumbotron breadcumb no-bg">
+      <div className="mainbreadcumb">
+        <div className="container">
+          <div className="row m-10-hor">
+            <div className="col-12 text-center">
+              <h1>Pricing</h1>
+              <p>Anim pariatur cliche reprehenderit</p>
             </div>
           </div>
         </div>
-      </section>
+      </div>
+    </section>
 
-  <Pricing />
+    <Pricing />
 
-  <Footer />
-</div>
-
+    <Footer />
+  </div>
 );
 export default price;

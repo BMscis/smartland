@@ -1,5 +1,5 @@
-import React, { Component } from "react";
-import Particles from "react-tsparticles";
+import React, { Component } from 'react';
+import Particles from 'react-tsparticles';
 
 class Particle extends Component {
   constructor(props) {
@@ -9,13 +9,11 @@ class Particle extends Component {
     this.particlesLoaded = this.particlesLoaded.bind(this);
   }
 
-  particlesInit(main) {
-
+  particlesInit() {
     // you can initialize the tsParticles instance (main) here, adding custom shapes or presets
   }
 
-  particlesLoaded(container) {
-  }
+  particlesLoaded() {}
 
   render() {
     return (
@@ -26,80 +24,80 @@ class Particle extends Component {
         options={{
           background: {
             color: {
-              value: "none",
-            },
+              value: 'none'
+            }
           },
           fpsLimit: 70,
           interactivity: {
-            detectsOn: "canvas",
+            detectsOn: 'canvas',
             events: {
               onClick: {
                 enable: true,
-                mode: "push",
+                mode: 'push'
               },
               onHover: {
                 enable: true,
-                mode: "repulse",
+                mode: 'repulse'
               },
-              resize: true,
+              resize: true
             },
             modes: {
               bubble: {
                 distance: 400,
                 duration: 2,
                 opacity: 0.8,
-                size: 40,
+                size: 40
               },
               push: {
-                quantity: 1,
+                quantity: 1
               },
               repulse: {
                 distance: 200,
-                duration: 0.4,
-              },
-            },
+                duration: 0.4
+              }
+            }
           },
           particles: {
             color: {
-              value: "#ffffff",
+              value: '#ffffff'
             },
             links: {
-              color: "#ffffff",
+              color: '#ffffff',
               distance: 150,
               enable: false,
               opacity: 0.5,
-              width: 1,
+              width: 1
             },
             collisions: {
-              enable: true,
+              enable: true
             },
             move: {
-              direction: "none",
+              direction: 'none',
               enable: true,
-              outMode: "bounce",
+              outMode: 'bounce',
               random: false,
               speed: 2,
-              straight: false,
+              straight: false
             },
             number: {
               density: {
                 enable: true,
-                value_area: 400,
+                value_area: 400
               },
-              value: 20,
+              value: 20
             },
             opacity: {
-              value: 0.5,
+              value: 0.5
             },
             shape: {
-              type: "circle",
+              type: 'circle'
             },
             size: {
               random: true,
-              value: 5,
-            },
+              value: 5
+            }
           },
-          detectRetina: true,
+          detectRetina: true
         }}
       />
     );

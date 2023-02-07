@@ -23,7 +23,7 @@ function checkStatus(response) {
     return response;
   }
 
-  return parseJSON(response).then(responseFormatted => {
+  return parseJSON(response).then((responseFormatted) => {
     const error = new Error(response.statusText);
     error.response = response;
     error.response.payload = responseFormatted;
@@ -39,7 +39,7 @@ function checkStatus(response) {
  */
 function formatQueryParams(params) {
   return Object.keys(params)
-    .map(k => `${encodeURIComponent(k)}=${encodeURIComponent(params[k])}`)
+    .map((k) => `${encodeURIComponent(k)}=${encodeURIComponent(params[k])}`)
     .join('&');
 }
 
@@ -51,17 +51,12 @@ function formatQueryParams(params) {
  *
  * @return {object}           The response data
  */
-export default function request(
-  url,
-  options = {},
-  stringify = true
-) {
+export default function request(url, options = {}, stringify = true) {
   // Set headers
   if (stringify) {
-
     options.headers = Object.assign(
       {
-        'Content-Type': 'application/json',
+        'Content-Type': 'application/json'
       },
       options.headers,
       {}
@@ -73,7 +68,7 @@ export default function request(
   if (token) {
     options.headers = Object.assign(
       {
-        Authorization: `Bearer ${token}`,
+        Authorization: `Bearer ${token}`
       },
       options.headers
     );
@@ -89,7 +84,5 @@ export default function request(
     options.body = JSON.stringify(options.body);
   }
 
-  return fetch(url, options)
-    .then(checkStatus)
-    .then(parseJSON);
+  return fetch(url, options).then(checkStatus).then(parseJSON);
 }
