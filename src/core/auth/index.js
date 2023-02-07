@@ -97,7 +97,7 @@ const auth = {
 
   setUserInfo(value = '', isLocalStorage = false, userInfo = USER_INFO) {
     return auth.set(value, userInfo, isLocalStorage);
-  },
+  }
 };
 
 export const loginUrl = 'http://localhost:1337/auth/local';

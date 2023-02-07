@@ -1,12 +1,12 @@
-import React from "react";
-import PropTypes from "prop-types";
-import Gallery from "react-photo-gallery";
-import GridImage from "./components/GridImage";
+import React from 'react';
+import PropTypes from 'prop-types';
+import Gallery from 'react-photo-gallery';
+import GridImage from './components/GridImage';
 
 const ImageMosaic = ({ images, handleClick }) => (
-  <div className='gallery-container'>
+  <div className="gallery-container">
     <Gallery
-      columns={containerWidth => {
+      columns={(containerWidth) => {
         let columns = 1;
         if (containerWidth >= 420) columns = 1;
         if (containerWidth >= 500) columns = 2;
@@ -38,5 +38,3 @@ ImageMosaic.propTypes = {
 };
 
 export default ImageMosaic;
-
-

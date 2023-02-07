@@ -50,65 +50,64 @@ const GlobalStyles = createGlobalStyle`
   }
 `;
 
-const homethree= () => (
-  <div >
-  <GlobalStyles />
-      <section className="jumbotron no-bg no-bottom" >
-        <div className='container-fluid'>
-          <div className='row'>
-             <SliderCarousel/>
-          </div>
+const homethree = () => (
+  <div>
+    <GlobalStyles />
+    <section className="jumbotron no-bg no-bottom">
+      <div className="container-fluid">
+        <div className="row">
+          <SliderCarousel />
         </div>
-      </section>
+      </div>
+    </section>
 
-      <section className='container'>
-        <div className='row'>
-          <div className='col-lg-12'>
-              <h2 className='style-2'>New Items</h2>
-          </div>
+    <section className="container">
+      <div className="row">
+        <div className="col-lg-12">
+          <h2 className="style-2">New Items</h2>
         </div>
-       <ColumnNew/>
-      </section>
+      </div>
+      <ColumnNew />
+    </section>
 
-      <section className='container no-top'>
-        <div className='row'>
-          <div className='col-lg-12'>
-              <h2 className='style-2'>Hot Collections</h2>
+    <section className="container no-top">
+      <div className="row">
+        <div className="col-lg-12">
+          <h2 className="style-2">Hot Collections</h2>
+        </div>
+      </div>
+      <div className="container no-top">
+        <div className="row">
+          <div className="col-lg-12 px-0">
+            <CarouselCollection />
           </div>
         </div>
-        <div className='container no-top'>
-          <div className='row'>
-            <div className='col-lg-12 px-0'>
-              <CarouselCollection/>
-            </div>
-          </div>
-        </div>
-      </section>
+      </div>
+    </section>
 
-      <section className='container no-top'>
-        <div className='row'>
-          <div className='col-lg-12'>
-              <h2 className='style-2'>Top Seller</h2>
-          </div>
-          <div className='col-lg-12'>
-            <AuthorList/>
-          </div>
+    <section className="container no-top">
+      <div className="row">
+        <div className="col-lg-12">
+          <h2 className="style-2">Top Seller</h2>
         </div>
-      </section>
+        <div className="col-lg-12">
+          <AuthorList />
+        </div>
+      </div>
+    </section>
 
-      <section className='container no-top'>
-        <div className='row'>
-          <div className='col-lg-12'>
-              <h2 className='style-2'>Create and sell</h2>
-          </div>
+    <section className="container no-top">
+      <div className="row">
+        <div className="col-lg-12">
+          <h2 className="style-2">Create and sell</h2>
         </div>
-        <div className='container px-0'>
-          <FeatureBox/>
-        </div>
-      </section>
+      </div>
+      <div className="container px-0">
+        <FeatureBox />
+      </div>
+    </section>
 
     <Footer />
-
   </div>
 );
 export default homethree;

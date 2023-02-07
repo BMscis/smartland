@@ -1,7 +1,7 @@
-import { createGlobalStyle } from "styled-components"
+import { createGlobalStyle } from 'styled-components';
 
 export default function Loading() {
-    const GlobalStyles = createGlobalStyle`
+  const GlobalStyles = createGlobalStyle`
     .lds-ring {
         display: inline-block;
         position: fixed;
@@ -40,17 +40,16 @@ export default function Loading() {
           transform: rotate(360deg);
         }
       }
-    `
-    return (
-        <>
-        <GlobalStyles/>
-        <div className="lds-ring">
-            <div></div>
-            <div></div>
-            <div></div>
-            <div></div>
-        </div>
-        
-        </>
-    )
+    `;
+  return (
+    <>
+      <GlobalStyles />
+      <div className="lds-ring">
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+      </div>
+    </>
+  );
 }

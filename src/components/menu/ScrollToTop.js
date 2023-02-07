@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 
 export default class ScrollToTop extends Component {
-
   constructor(props) {
     super(props);
     this.state = {
@@ -11,7 +10,7 @@ export default class ScrollToTop extends Component {
 
   componentDidMount() {
     var scrollComponent = this;
-    document.addEventListener("scroll", function(e) {
+    document.addEventListener('scroll', function () {
       scrollComponent.toggleVisibility();
     });
   }
@@ -21,7 +20,8 @@ export default class ScrollToTop extends Component {
       this.setState({
         is_visible: true
       });
-    } else { this.setState({
+    } else {
+      this.setState({
         is_visible: false
       });
     }
@@ -30,14 +30,14 @@ export default class ScrollToTop extends Component {
   scrollToTop() {
     window.scrollTo({
       top: 0,
-      behavior: "smooth"
+      behavior: 'smooth'
     });
   }
 
   render() {
     const { is_visible } = this.state;
     return (
-      <div id='scroll-to-top' className='init'>
+      <div id="scroll-to-top" className="init">
         {is_visible && (
           <div onClick={() => this.scrollToTop()}>
             <i className=""></i>

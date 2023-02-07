@@ -1,14 +1,14 @@
 import React from 'react';
 import ScrollToTopBtn from './menu/ScrollToTop';
-import { Routes, Route, Navigate, useLocation } from "react-router-dom";
+import { Routes, Route, Navigate, useLocation } from 'react-router-dom';
 import Header from './menu/header';
 import Home from './pages/home';
-import Home1 from './pages/home1';
-import Home2 from './pages/home2';
+// import Home1 from './pages/home1';
+// import Home2 from './pages/home2';
 import Explore from './pages/explore';
-import Explore2 from './pages/explore2';
+// import Explore2 from './pages/explore2';
 import Helpcenter from './pages/helpcenter';
-import Rangking from './pages/rangking';
+// import Rangking from './pages/rangking';
 import Colection from './pages/colection';
 import ItemDetail from './pages/ItemDetail';
 import Author from './pages/Author';
@@ -42,77 +42,73 @@ const GlobalStyles = createGlobalStyle`
 `;
 
 export const ScrollTop = ({ children, location }) => {
-  React.useEffect(() => window.scrollTo(0,0), [location])
-  return children
-}
+  React.useEffect(() => window.scrollTo(0, 0), [location]);
+  return children;
+};
 
 const ProtectedRoute = ({ children }) => {
   let location = useLocation();
   const isAuth = auth.getToken() !== null;
 
-  return (
-      isAuth ? children : <Navigate to="/login" state={{ from: location }} replace />
-  )
+  return isAuth ? children : <Navigate to="/login" state={{ from: location }} replace />;
 };
 const ProtectedWalletRoute = ({ children }) => {
   let location = useLocation();
-  const {wallet} = AwsHook()
+  const { wallet } = AwsHook();
   const isAuth = wallet !== null;
 
-  return (
-      isAuth ? children : <Navigate to="/wallet" state={{ from: location }} replace />
-  )
+  return isAuth ? children : <Navigate to="/wallet" state={{ from: location }} replace />;
 };
 if ('virtualKeyboard' in navigator) {
   // The VirtualKeyboard API is supported!
-  console.log("Navigator")
-  navigator.virtualKeyboard.overlaysContent = true
+  console.log('Navigator');
+  navigator.virtualKeyboard.overlaysContent = true;
 }
-const app= () => (
+const app = () => (
   <div className="wraper">
-  <GlobalStyles />
-    <Header/>
+    <GlobalStyles />
+    <Header />
     <Routes>
       <Route path="*" element={<Navigate to="/home" replace />} />
       <Route path="/Author">
-        <Route 
-          path=":authorId" 
+        <Route
+          path=":authorId"
           element={
             <ProtectedRoute>
               <Author />
             </ProtectedRoute>
-          } 
+          }
         />
       </Route>
       <Route path="/Profile">
-        <Route 
-          path=":authorId" 
+        <Route
+          path=":authorId"
           element={
             <ProtectedRoute>
               <Profile />
             </ProtectedRoute>
-          } 
+          }
         />
       </Route>
       <Route path="/home" element={<Home />} />
       {/* <Route element={<Home1/>} path="/home1" />
       <Route element={<NFTSCreateForm/>} path="/create" />
       <Route element={<Home2/>} path="/home2" /> */}
-      <Route element={<Explore/>} path="/explore" />
+      <Route element={<Explore />} path="/explore" />
       {/* <Route element={<Explore2/>} path="/explore2" /> */}
       {/* <Route element={<ExploreOpensea/>} path="/exploreOpensea" /> */}
       {/* <Route element={<Ranking/>} path="/rangking" /> */}
-      <Route element={<Auction/>} path="/Auction" />
-      <Route element={<Helpcenter/>} path="/helpcenter" />
-      <Route element={<Colection/>} path="/colection/:collectionId" />
+      <Route element={<Auction />} path="/Auction" />
+      <Route element={<Helpcenter />} path="/helpcenter" />
+      <Route element={<Colection />} path="/colection/:collectionId" />
       <Route path="/ItemDetail">
-        <Route 
-          path=":nftId" 
+        <Route
+          path=":nftId"
           element={
             <ProtectedWalletRoute>
               <ItemDetail />
             </ProtectedWalletRoute>
-          } 
+          }
         />
       </Route>
       {/* <Route element={<AuthorOpensea />} path="/AuthorOpensea" /> */}
@@ -125,13 +121,13 @@ const app= () => (
       <Route element={<News />} path="/news" />
       {/* <Route element={<NewsSingle />} path="/news/:postId" /> */}
       <Route path="/create">
-        <Route 
-          path="" 
+        <Route
+          path=""
           element={
             <ProtectedWalletRoute>
               <Create />
             </ProtectedWalletRoute>
-          } 
+          }
         />
       </Route>
       {/* <Route element={<Create2 />} path="/create2" />
@@ -149,7 +145,6 @@ const app= () => (
       {/* <Route element={<Minter />} path="/mint" /> */}
     </Routes>
     <ScrollToTopBtn />
-    
   </div>
 );
 export default app;
