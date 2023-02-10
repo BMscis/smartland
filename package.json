@@ -2,7 +2,6 @@
   "name": "smartseat",
   "version": "0.1.0",
   "private": true,
-  "homepage": "https://bmscis.github.io/smartland/",
   "dependencies": {
     "@aws-amplify/ui-react": "^4.2.0",
     "@circle-fin/circle-sdk": "^1.3.0",
@@ -61,7 +60,7 @@
     "eject": "react-scripts eject",
     "lint": "eslint ./src/**/*.js",
     "lint:fix": "eslint --fix ./src/**/*.js",
-    "format": "prettier --write ./**/*.{js,jsx,ts,tsx,css,md,json} --config ./.prettierrc"
+    "format": "prettier --write ./**/*.{js,jsx,ts,tsx,scss,css,md,json} --config ./.prettierrc"
   },
   "eslintConfig": {
     "extends": [

@@ -13,13 +13,13 @@ import * as serviceWorker from './serviceWorker';
 import { AwsProvider } from './core/context/AwsContext';
 import { Amplify } from 'aws-amplify';
 import awsExports from './aws-exports';
-import { HashRouter } from 'react-router-dom';
+import { BrowserRouter } from 'react-router-dom';
 Amplify.configure(awsExports);
 ReactDOM.render(
   <AwsProvider>
-    <HashRouter>
+    <BrowserRouter>
       <App />
-    </HashRouter>
+    </BrowserRouter>
   </AwsProvider>,
   document.getElementById('root')
 );

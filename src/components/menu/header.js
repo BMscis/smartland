@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from 'react';
-import Breakpoint, { BreakpointProvider, setDefaultBreakpoints } from 'react-socks';
 import { ReactComponent as Logo } from '../../assets/sas.svg';
 import { Link, useNavigate, useMatch, useResolvedPath } from 'react-router-dom';
 import useOnclickOutside from 'react-cool-onclickoutside';
@@ -9,10 +8,11 @@ import { createGlobalStyle } from 'styled-components';
 import { isMobile } from '../../utils';
 
 const GlobalStyle = createGlobalStyle`
+.container {
+  gap: 2rem;
+}
 svg{
   width: 24px;
-  position: absolute;
-  top:0
 }
 .navbar-title.navbar-item{
   padding:30px
@@ -21,16 +21,15 @@ svg{
   letter-spacing: 10px;
 }
 .navbar-title h4{
-
   color: #1dd9b5;
 }
 .navbar-title h3,
 .navbar-title h4{
-  margin: 0 0 0 40px;
+  margin-bottom: 0;
   white-space: nowrap;
 }
 `;
-setDefaultBreakpoints([{ xs: 0 }, { l: 1199 }, { xl: 1200 }]);
+// setDefaultBreakpoints([{ xs: 0 }, { s: 641 }, { l: 1199 }, { xl: 1200 }]);
 
 const NavLink = (props) => {
   let resolved = useResolvedPath(props.to);
@@ -136,74 +135,57 @@ const Header = function () {
       <GlobalStyle />
       <header id="myHeader" className="navbar white">
         <div className="container">
-          <NavLink to="/">
-            <Logo style={{ transform: isMobile() ? 'scale(.5)' : 'scale(1)' }} />
-          </NavLink>
-          <div className="row w-100-nav">
-            <div className="logo px-0">
-              <div className="navbar-title navbar-item">
-                <NavLink to="/">
-                  {isMobile() && user ? (
-                    <>
-                      <h3 style={{ visibility: 'hidden' }}>SMARTSEAT</h3>
-                      <h4 style={{ visibility: 'hidden' }}>BLOCKCHAIN TICKETS</h4>
-                    </>
-                  ) : (
-                    <>
-                      <h3 style={{ transform: isMobile() ? 'scale(.8)' : 'scale(1)' }}>
-                        SMARTSEAT
-                      </h3>
-                      <h4 style={{ transform: isMobile() ? 'scale(.65)' : 'scale(1)' }}>
-                        BLOCKCHAIN TICKETS
-                      </h4>
-                    </>
-                  )}
-                  {/* <img
-                    src="./img/sas.png"
-                    className="img-fluid d-block"
-                    alt="#"
-                  />
-                  <img
-                    src="./img/sas.png"
-                    className="img-fluid d-3"
-                    alt="#"
-                  />
-                  <img
-                    src="./img/sas.png"
-                    className="img-fluid d-none"
-                    alt="#"
-                  /> */}
-                </NavLink>
+          <Logo style={{ transform: isMobile() ? 'scale(.65)' : 'scale(.7)', position: 'unset' }} />
+          <div className="w-100-nav">
+            <div style={{ display: 'flex', alignItems: 'center' }}>
+              <div className="logo px-0">
+                <div className="navbar-title navbar-item">
+                  <NavLink to="/">
+                    {isMobile() && user ? (
+                      <>
+                        <h3 style={{ visibility: 'hidden' }}>SMARTSEAT</h3>
+                        <h4 style={{ visibility: 'hidden' }}>BLOCKCHAIN TICKETS</h4>
+                      </>
+                    ) : (
+                      <>
+                        <h3 style={{ transform: isMobile() ? 'scale(.8)' : 'scale(1)' }}>
+                          SMARTSEAT
+                        </h3>
+                        <h4 style={{ transform: isMobile() ? 'scale(.65)' : 'scale(1)' }}>
+                          BLOCKCHAIN TICKETS
+                        </h4>
+                      </>
+                    )}
+                  </NavLink>
+                </div>
+              </div>
+
+              <div className="search">
+                <input
+                  id="quick_search"
+                  className="xs-hide"
+                  name="quick_search"
+                  placeholder="search item here..."
+                  type="text"
+                />
               </div>
             </div>
 
-            <div className="search">
-              <input
-                id="quick_search"
-                className="xs-hide"
-                name="quick_search"
-                placeholder="search item here..."
-                type="text"
-              />
-            </div>
-
-            <BreakpointProvider>
-              <Breakpoint l down>
-                {showmenu && (
-                  <div className="menu">
-                    <div className="navbar-item">
-                      <div ref={ref}>
-                        <div
-                          id="home"
-                          className="dropdown-custom dropdown-toggle btn"
-                          onClick={() => {
-                            btn_icon(false);
-                            navigate('/');
-                          }}
-                        >
-                          Home
-                        </div>
-                        {/* {openMenu && (
+            {showmenu && (
+              <div className="mobile-menu">
+                <div className="navbar-item">
+                  <div ref={ref}>
+                    <div
+                      id="home"
+                      className="dropdown-custom dropdown-toggle btn"
+                      onClick={() => {
+                        btn_icon(false);
+                        navigate('/');
+                      }}
+                    >
+                      Home
+                    </div>
+                    {/* {openMenu && (
                               <NavLink to="/" onClick={() => btn_icon(!showmenu)}>Homepage</NavLink>
                           // <div className='item-dropdown'>
                           //   <div className="dropdown" onClick={closeMenu}>
@@ -212,95 +194,89 @@ const Header = function () {
                           //   </div> 
                           // </div>
                         )} */}
-                      </div>
+                  </div>
+                </div>
+                <div className="navbar-item">
+                  <div ref={ref1}>
+                    <div className="dropdown-custom dropdown-toggle btn" onClick={handleBtnClick1}>
+                      Explore
                     </div>
-                    <div className="navbar-item">
-                      <div ref={ref1}>
-                        <div
-                          className="dropdown-custom dropdown-toggle btn"
-                          onClick={handleBtnClick1}
-                        >
-                          Explore
+                    {openMenu1 && (
+                      <div className="item-dropdown">
+                        <div className="dropdown" onClick={closeMenu1}>
+                          <NavLink to="/explore" onClick={() => btn_icon(!showmenu)}>
+                            Explore
+                          </NavLink>
+                          {/* <NavLink to="/explore2" onClick={() => btn_icon(!showmenu)}>Explore 2</NavLink> */}
+                          <NavLink to="/rangking" onClick={() => btn_icon(!showmenu)}>
+                            Rangking
+                          </NavLink>
+                          <NavLink to="/colection" onClick={() => btn_icon(!showmenu)}>
+                            Collection
+                          </NavLink>
+                          <NavLink to="/ItemDetail" onClick={() => btn_icon(!showmenu)}>
+                            Items Details
+                          </NavLink>
+                          <NavLink to="/Auction" onClick={() => btn_icon(!showmenu)}>
+                            Live Auction
+                          </NavLink>
+                          <NavLink to="/helpcenter" onClick={() => btn_icon(!showmenu)}>
+                            Help Center
+                          </NavLink>
                         </div>
-                        {openMenu1 && (
-                          <div className="item-dropdown">
-                            <div className="dropdown" onClick={closeMenu1}>
-                              <NavLink to="/explore" onClick={() => btn_icon(!showmenu)}>
-                                Explore
-                              </NavLink>
-                              {/* <NavLink to="/explore2" onClick={() => btn_icon(!showmenu)}>Explore 2</NavLink> */}
-                              <NavLink to="/rangking" onClick={() => btn_icon(!showmenu)}>
-                                Rangking
-                              </NavLink>
-                              <NavLink to="/colection" onClick={() => btn_icon(!showmenu)}>
-                                Collection
-                              </NavLink>
-                              <NavLink to="/ItemDetail" onClick={() => btn_icon(!showmenu)}>
-                                Items Details
-                              </NavLink>
-                              <NavLink to="/Auction" onClick={() => btn_icon(!showmenu)}>
-                                Live Auction
-                              </NavLink>
-                              <NavLink to="/helpcenter" onClick={() => btn_icon(!showmenu)}>
-                                Help Center
-                              </NavLink>
-                            </div>
-                          </div>
-                        )}
-                      </div>
-                    </div>
-                    <div className="navbar-item">
-                      <div ref={ref2}>
-                        <div
-                          className="dropdown-custom dropdown-toggle btn"
-                          onClick={handleBtnClick2}
-                        >
-                          Setup
-                        </div>
-                        {openMenu2 && (
-                          <div className="item-dropdown">
-                            <div className="dropdown" onClick={closeMenu2}>
-                              <NavLink to="/wallet" onClick={() => btn_icon(!showmenu)}>
-                                Wallet
-                              </NavLink>
-                              <NavLink to="/create" onClick={() => btn_icon(!showmenu)}>
-                                Create
-                              </NavLink>
-                              <NavLink to="/news" onClick={() => btn_icon(!showmenu)}>
-                                News
-                              </NavLink>
-                              <NavLink to="/works" onClick={() => btn_icon(!showmenu)}>
-                                Gallery
-                              </NavLink>
-                              <NavLink to="/activity" onClick={() => btn_icon(!showmenu)}>
-                                Activity
-                              </NavLink>
-                              {/* <NavLink to="/loginTwo" onClick={() => btn_icon(!showmenu)}>login 2</NavLink> */}
-                              <NavLink to="/register" onClick={() => btn_icon(!showmenu)}>
-                                Register
-                              </NavLink>
-                              {user && (
-                                <>
-                                  <NavLink to={`/Author/${user.user}`}>Author</NavLink>
-                                  <NavLink to={`/Profile/${user.user}`}>Profile</NavLink>
-                                </>
-                              )}
-                              <NavLink to="/contact" onClick={() => btn_icon(!showmenu)}>
-                                Contact Us
-                              </NavLink>
-                            </div>
-                          </div>
-                        )}
-                      </div>
-                    </div>
-                    {!user && (
-                      <div className="navbar-item">
-                        <NavLink to="/login" onClick={() => btn_icon(!showmenu)}>
-                          Login
-                        </NavLink>
                       </div>
                     )}
-                    {/* <div className='navbar-item'>
+                  </div>
+                </div>
+                <div className="navbar-item">
+                  <div ref={ref2}>
+                    <div className="dropdown-custom dropdown-toggle btn" onClick={handleBtnClick2}>
+                      Setup
+                    </div>
+                    {openMenu2 && (
+                      <div className="item-dropdown">
+                        <div className="dropdown" onClick={closeMenu2}>
+                          <NavLink to="/wallet" onClick={() => btn_icon(!showmenu)}>
+                            Wallet
+                          </NavLink>
+                          <NavLink to="/create" onClick={() => btn_icon(!showmenu)}>
+                            Create
+                          </NavLink>
+                          <NavLink to="/news" onClick={() => btn_icon(!showmenu)}>
+                            News
+                          </NavLink>
+                          <NavLink to="/works" onClick={() => btn_icon(!showmenu)}>
+                            Gallery
+                          </NavLink>
+                          <NavLink to="/activity" onClick={() => btn_icon(!showmenu)}>
+                            Activity
+                          </NavLink>
+                          {/* <NavLink to="/loginTwo" onClick={() => btn_icon(!showmenu)}>login 2</NavLink> */}
+                          <NavLink to="/register" onClick={() => btn_icon(!showmenu)}>
+                            Register
+                          </NavLink>
+                          {user && (
+                            <>
+                              <NavLink to={`/Author/${user.user}`}>Author</NavLink>
+                              <NavLink to={`/Profile/${user.user}`}>Profile</NavLink>
+                            </>
+                          )}
+                          <NavLink to="/contact" onClick={() => btn_icon(!showmenu)}>
+                            Contact Us
+                          </NavLink>
+                        </div>
+                      </div>
+                    )}
+                  </div>
+                </div>
+                {!user && (
+                  <div className="navbar-item">
+                    <NavLink to="/login" onClick={() => btn_icon(!showmenu)}>
+                      Login
+                    </NavLink>
+                  </div>
+                )}
+                {/* <div className='navbar-item'>
                       <div ref={ref3}>
                         <div className="dropdown-custom dropdown-toggle btn"
                           onClick={handleBtnClick3}
@@ -323,27 +299,25 @@ const Header = function () {
                         )}
                       </div>
                     </div> */}
-                  </div>
-                )}
-              </Breakpoint>
+              </div>
+            )}
 
-              <Breakpoint xl>
-                <div className="menu">
-                  <div className="navbar-item">
-                    <div ref={ref}>
-                      <div
-                        id="home"
-                        className="dropdown-custom dropdown-toggle btn"
-                        onClick={() => {
-                          btn_icon(false);
-                          navigate('/');
-                        }}
-                        onMouseEnter={handleBtnClick}
-                        onMouseLeave={closeMenu}
-                      >
-                        Home
-                        <span className="lines"></span>
-                        {/* {openMenu && (
+            <div className="desktop-menu">
+              <div className="navbar-item">
+                <div ref={ref}>
+                  <div
+                    id="home"
+                    className="dropdown-custom dropdown-toggle btn"
+                    onClick={() => {
+                      btn_icon(false);
+                      navigate('/');
+                    }}
+                    onMouseEnter={handleBtnClick}
+                    onMouseLeave={closeMenu}
+                  >
+                    Home
+                    <span className="lines"></span>
+                    {/* {openMenu && (
                               <NavLink to="/">Homepage</NavLink>
                           // <div className='item-dropdown'>
                           //   <div className="dropdown" onClick={closeMenu}>
@@ -352,76 +326,76 @@ const Header = function () {
                           //   </div>
                           // </div>
                         )} */}
-                      </div>
-                    </div>
                   </div>
-                  <div className="navbar-item">
-                    <div ref={ref1}>
-                      <div
-                        className="dropdown-custom dropdown-toggle btn"
-                        onMouseEnter={handleBtnClick1}
-                        onMouseLeave={closeMenu1}
-                      >
-                        Explore
-                        <span className="lines"></span>
-                        {openMenu1 && (
-                          <div className="item-dropdown">
-                            <div className="dropdown" onClick={closeMenu1}>
-                              <NavLink to="/explore">Explore</NavLink>
-                              {/* <NavLink to="/explore2">Explore 2</NavLink> */}
-                              <NavLink to="/rangking">Rangking</NavLink>
-                              <NavLink to="/colection">Collection</NavLink>
-                              <NavLink to="/ItemDetail">Items Details</NavLink>
-                              <NavLink to="/Auction">Live Auction</NavLink>
-                              <NavLink to="/helpcenter">Help Center</NavLink>
-                            </div>
-                          </div>
-                        )}
+                </div>
+              </div>
+              <div className="navbar-item">
+                <div ref={ref1}>
+                  <div
+                    className="dropdown-custom dropdown-toggle btn"
+                    onMouseEnter={handleBtnClick1}
+                    onMouseLeave={closeMenu1}
+                  >
+                    Explore
+                    <span className="lines"></span>
+                    {openMenu1 && (
+                      <div className="item-dropdown">
+                        <div className="dropdown" onClick={closeMenu1}>
+                          <NavLink to="/explore">Explore</NavLink>
+                          {/* <NavLink to="/explore2">Explore 2</NavLink> */}
+                          <NavLink to="/rangking">Rangking</NavLink>
+                          <NavLink to="/colection">Collection</NavLink>
+                          <NavLink to="/ItemDetail">Items Details</NavLink>
+                          <NavLink to="/Auction">Live Auction</NavLink>
+                          <NavLink to="/helpcenter">Help Center</NavLink>
+                        </div>
                       </div>
-                    </div>
+                    )}
                   </div>
-                  <div className="navbar-item">
-                    <div ref={ref2}>
-                      <div
-                        className="dropdown-custom dropdown-toggle btn"
-                        onMouseEnter={handleBtnClick2}
-                        onMouseLeave={closeMenu2}
-                      >
-                        Setup
-                        <span className="lines"></span>
-                        {openMenu2 && (
-                          <div className="item-dropdown">
-                            <div className="dropdown" onClick={closeMenu2}>
-                              <NavLink to="/wallet">Wallet</NavLink>
-                              <NavLink to="/create">Create</NavLink>
-                              <NavLink to="/news">News</NavLink>
-                              <NavLink to="/works">Gallery</NavLink>
-                              <NavLink to="/activity" onClick={() => btn_icon(!showmenu)}>
-                                Activity
-                              </NavLink>
-                              {user && (
-                                <>
-                                  <NavLink to={`/Author/${user.user}`}>Author</NavLink>
-                                  <NavLink to={`/Profile/${user.user}`}>Profile</NavLink>
-                                </>
-                              )}
-                              {/* <NavLink to="/loginTwo">login 2</NavLink> */}
-                              <NavLink to="/register">Register</NavLink>
-                              <NavLink to="/contact">Contact Us</NavLink>
-                            </div>
-                          </div>
-                        )}
+                </div>
+              </div>
+              <div className="navbar-item">
+                <div ref={ref2}>
+                  <div
+                    className="dropdown-custom dropdown-toggle btn"
+                    onMouseEnter={handleBtnClick2}
+                    onMouseLeave={closeMenu2}
+                  >
+                    Setup
+                    <span className="lines"></span>
+                    {openMenu2 && (
+                      <div className="item-dropdown">
+                        <div className="dropdown" onClick={closeMenu2}>
+                          <NavLink to="/wallet">Wallet</NavLink>
+                          <NavLink to="/create">Create</NavLink>
+                          <NavLink to="/news">News</NavLink>
+                          <NavLink to="/works">Gallery</NavLink>
+                          <NavLink to="/activity" onClick={() => btn_icon(!showmenu)}>
+                            Activity
+                          </NavLink>
+                          {user && (
+                            <>
+                              <NavLink to={`/Author/${user.user}`}>Author</NavLink>
+                              <NavLink to={`/Profile/${user.user}`}>Profile</NavLink>
+                            </>
+                          )}
+                          {/* <NavLink to="/loginTwo">login 2</NavLink> */}
+                          <NavLink to="/register">Register</NavLink>
+                          <NavLink to="/contact">Contact Us</NavLink>
+                        </div>
                       </div>
-                    </div>
+                    )}
                   </div>
-                  {!user && (
-                    <div className="navbar-item">
-                      <NavLink to="/login" onClick={() => btn_icon(!showmenu)}>
-                        Login
-                      </NavLink>
-                    </div>
-                  )}
-                  {/* <div className='navbar-item'>
+                </div>
+              </div>
+              {!user && (
+                <div className="navbar-item">
+                  <NavLink to="/login" onClick={() => btn_icon(!showmenu)}>
+                    Login
+                  </NavLink>
+                </div>
+              )}
+              {/* <div className='navbar-item'>
                     <div ref={ref3}>
                       <div className="dropdown-custom dropdown-toggle btn"
                         onMouseEnter={handleBtnClick3} onMouseLeave={closeMenu3}>
@@ -444,9 +418,7 @@ const Header = function () {
                       </div>
                     </div>
                   </div> */}
-                </div>
-              </Breakpoint>
-            </BreakpointProvider>
+            </div>
             {user && (
               <div className="mainside">
                 <NavLink
@@ -620,11 +592,22 @@ const Header = function () {
             )}
           </div>
 
-          <button className="nav-icon" onClick={() => btn_icon(!showmenu)}>
-            <div className="menu-line white"></div>
-            <div className="menu-line1 white"></div>
-            <div className="menu-line2 white"></div>
-          </button>
+          <span className="nav-icon" onClick={() => btn_icon(!showmenu)}>
+            <svg
+              fill="none"
+              stroke="white"
+              strokeWidth="1.5"
+              viewBox="0 0 24 24"
+              xmlns="http://www.w3.org/2000/svg"
+              aria-hidden="true"
+            >
+              <path
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5"
+              ></path>
+            </svg>
+          </span>
         </div>
       </header>
     </>

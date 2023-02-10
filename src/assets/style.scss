@@ -110,7 +110,6 @@ section{
 .wraper{
   padding: 0;
   display: block;
-  overflow: hidden;
   width: 100%;
   .wraperitem{
     width: 100%;
@@ -772,7 +771,7 @@ p.lead {
 /*navbar*/
 .navbar {
     padding: 0;
-    position: absolute;
+    position: sticky;
     top: 0;
     left: 0;
     width: 100%;
@@ -795,9 +794,10 @@ p.lead {
       }
     }
     .w-100-nav{
+      flex: 1 1 auto;
       margin: 0;
-      width: 100%;
-      justify-content: left;
+      display: flex;
+      justify-content: space-between;
       align-items: center;
       flex-wrap: nowrap;
     }
@@ -837,7 +837,7 @@ p.lead {
     .navbar-item {
         position: relative;
         display: inline-block;
-        padding: 30px 6px;
+        padding: 0 6px;
         height: max-content;
         cursor: default;
         .lines{
@@ -877,8 +877,8 @@ p.lead {
         }
       }
     }
-    .menu{
-      display: flex;
+    .desktop-menu{
+      display: inline-flex;
       justify-content: flex-end;
     }
     .nav-icon{
@@ -888,19 +888,11 @@ p.lead {
       .m-2-hor {
           padding: 0px 2%;
       }
-      .menu{
-        display: block;
-        padding: 15px 0 10px;
-      }
       &.navbar {
-        position: relative;
         .logo{
           display: inline-block;
         }
         .search{
-          display: inline-block;
-          position: relative;
-          top: -9px;
           #quick_search{
             width: 100%;
           }
@@ -920,29 +912,10 @@ p.lead {
           }
         }
       }
-      .w-100-nav{
-        display: block;
-        padding: 20px 2%;
-      }
       .navbar-item {
         display: block;
         padding: 15px 0;
         border-bottom: 1px solid rgba(0,0,0,.1);
-      }
-      .nav-icon {
-      position: absolute;
-      top: 35px;
-      right: 25px;
-      display: block;
-      width: 20px;
-      height: 10px;
-      padding-top: 13px;
-      line-height: 0;
-      cursor: pointer;
-      background: none;
-      border: none;
-      padding: 0;
-      z-index: 9999;
       }
       .bg-nav-icon{ 
       width:32px; 
@@ -987,6 +960,18 @@ p.lead {
       //  }
      }
      @media only screen and (max-width: 641px) {
+      .desktop-menu {
+        display: none;
+      }
+      .mobile-menu{
+        display: block;
+        padding: 15px 0 10px;
+      }
+      .nav-icon {
+        display: block;
+        cursor: pointer;
+        z-index: 9999;
+      }
       &.navbar{
         .search{
           display: none;
@@ -1005,8 +990,6 @@ p.lead {
       }
     }
     &.sticky {
-      position: fixed;
-      top: 0;
       width: 100%;
       background: #212428;
       border-bottom: 0;
