@@ -1,0 +1,127 @@
+type EVENTINFO {
+  contractAddress: String
+  tokenID: String
+  walletAddress: String
+  location: String
+  tickets: Int
+  ticketSold: Int
+  artists: [ARTISTS]
+}
+
+type ARTISTS {
+  name: String
+  image: AVATAR
+}
+
+type OWNER {
+  author: ID
+  banner: AVATAR
+  avatar: AVATAR
+  username: String
+}
+
+type BIDS {
+  value: Int
+  nftId: ID
+  buyer: OWNER
+  createdAt: String
+}
+
+enum NFTCOLLECTIONTYPE {
+  CARTOONISM
+  ABSTRACTION
+}
+
+enum NFTCATEGORY {
+  ART
+  COLLECTIBLES
+  MUSIC
+  TICKET
+  VIRTUAL
+}
+
+enum ITEMTYPE {
+  SINGLE
+  BUNDLE
+}
+
+enum NFTSTATUS {
+  ON_AUCTION
+  BUY_NOW
+  HAS_OFFER
+}
+
+type NFTS @model @auth(rules: [{allow: public}]) {
+  id: ID!
+  title: String
+  status: NFTSTATUS
+  item_type: ITEMTYPE
+  collections: NFTCOLLECTIONTYPE
+  deadline: String
+  category: NFTCATEGORY
+  price: Float
+  bid: Int
+  max_bid: Int
+  likes: Int
+  description: String
+  views: Int
+  priceover: Int
+  showcase: Boolean
+  preview_image: AVATAR
+  chain: String
+  owner: OWNER
+  bids: [BIDS]
+  history: [BIDS]
+  event: EVENTINFO
+}
+
+type AVATAR {
+  id: ID
+  name: String
+  alternativeText: String
+  width: Int
+  height: Int
+  url: String
+}
+
+type AUTHORSALE {
+  id: ID
+  sales: Float
+  volume: Float
+  daily_sales: Float
+  weekly_sales: Float
+  floor_price: Float
+  owners: Float
+  assets: Float
+  author: ID
+}
+
+type AUTHOR @model @auth(rules: [{allow: public}]) {
+  id: ID!
+  user: ID
+  followers: Int
+  author_sale: AUTHORSALE
+  about: String
+  banner: AVATAR
+  photo: AVATAR
+  social: String
+  wallet: String
+  bidHistory: [BIDS]
+}
+
+type EVENTS @model @auth(rules: [{allow: public}]) {
+  id: ID!
+  AWSUSER: String
+  WALLETADDRESS: String
+  CONTRACTADDRESS: String
+  TOKENID: String
+  EVENTNAME: String
+  EVENTLOCATION: String
+  PRICE: Float
+  TICKETNUMBER: Int
+  TICKETSOLD: Int
+  EVENTIMAGE: String
+  EVENTDETAILS: AWSJSON
+  ARTISTS: AWSJSON
+}
+ 
