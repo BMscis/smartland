@@ -1,85 +1,93 @@
 {
   "api": {
-    "smartseatticketing": {
-      "service": "AppSync",
-      "providerPlugin": "awscloudformation",
+    "smartseat": {
       "dependsOn": [],
       "output": {
         "authConfig": {
+          "additionalAuthenticationProviders": [
+            {
+              "authenticationType": "AWS_IAM"
+            }
+          ],
           "defaultAuthentication": {
             "authenticationType": "API_KEY",
             "apiKeyConfig": {
               "apiKeyExpirationDays": 30,
               "description": "api key description"
             }
-          },
-          "additionalAuthenticationProviders": [
-            {
-              "authenticationType": "AWS_IAM"
-            }
-          ]
+          }
         }
-      }
+      },
+      "providerPlugin": "awscloudformation",
+      "service": "AppSync"
     }
   },
   "auth": {
-    "smartseatticketing": {
-      "service": "Cognito",
-      "providerPlugin": "awscloudformation",
-      "dependsOn": [],
+    "SmartSeatAuth": {
       "customAuth": false,
+      "dependsOn": [
+        {
+          "attributes": [
+            "Arn",
+            "Name"
+          ],
+          "category": "function",
+          "resourceName": "SmartSeatAuthCustomMessage",
+          "triggerProvider": "Cognito"
+        }
+      ],
       "frontendAuthConfig": {
-        "socialProviders": [],
-        "usernameAttributes": [
-          "EMAIL"
-        ],
-        "signupAttributes": [
-          "EMAIL",
-          "PHONE_NUMBER",
-          "NAME",
-          "PICTURE"
+        "mfaConfiguration": "ON",
+        "mfaTypes": [
+          "SMS"
         ],
         "passwordProtectionSettings": {
-          "passwordPolicyMinLength": 8,
-          "passwordPolicyCharacters": [
-            "REQUIRES_LOWERCASE",
-            "REQUIRES_NUMBERS",
-            "REQUIRES_UPPERCASE"
-          ]
+          "passwordPolicyCharacters": [],
+          "passwordPolicyMinLength": 8
         },
-        "mfaConfiguration": "OPTIONAL",
-        "mfaTypes": [
-          "SMS",
-          "TOTP"
+        "signupAttributes": [
+          "EMAIL"
         ],
+        "socialProviders": [],
+        "usernameAttributes": [],
         "verificationMechanisms": [
           "EMAIL"
         ]
-      }
+      },
+      "providerPlugin": "awscloudformation",
+      "service": "Cognito"
     }
   },
-  "storage": {
-    "sse": {
-      "service": "S3",
+  "function": {
+    "SmartSeatAuthCustomMessage": {
+      "build": true,
       "providerPlugin": "awscloudformation",
-      "dependsOn": [
+      "service": "Lambda"
+    }
+  },
+  "parameters": {
+    "AMPLIFY_function_SmartSeatAuthCustomMessage_deploymentBucketName": {
+      "usedBy": [
         {
           "category": "function",
-          "resourceName": "S3Triggerbb449fd6",
-          "attributes": [
-            "Name",
-            "Arn",
-            "LambdaExecutionRole"
-          ]
+          "resourceName": "SmartSeatAuthCustomMessage"
+        }
+      ]
+    },
+    "AMPLIFY_function_SmartSeatAuthCustomMessage_s3Key": {
+      "usedBy": [
+        {
+          "category": "function",
+          "resourceName": "SmartSeatAuthCustomMessage"
         }
       ]
     }
   },
-  "function": {
-    "S3Triggerbb449fd6": {
-      "service": "Lambda",
+  "storage": {
+    "s3smartseatstorage43b115d3": {
+      "dependsOn": [],
       "providerPlugin": "awscloudformation",
-      "build": true
+      "service": "S3"
     }
   }
 }

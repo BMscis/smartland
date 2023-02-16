@@ -114,7 +114,7 @@ export const AwsProvider = ({ children }) => {
 
     const removeStorageListener = Hub.listen("datastore", async (capsule) => {
       const { payload: { event, data } } = capsule
-
+      console.log({event,data})
       if (event === "ready") {
         getAuthors()
         getNFTS()
@@ -130,7 +130,7 @@ export const AwsProvider = ({ children }) => {
     )
     const removeAuthListener = Hub.listen('auth', async (capsule) => {
       const { payload: { event, data } } = capsule;
-
+      console.log({event,data})
       if (event === "signIn_failure") {
         setErrorState({
           state:true,
@@ -158,7 +158,7 @@ export const AwsProvider = ({ children }) => {
             alternativeText: data.attributes.picture,
             width: 200,
             height: 200,
-            url: `https://sse11114-dev.s3.amazonaws.com/public/author/${data.attributes.picture}`
+            url: `https://smartseat-storage-43b115d3225556-dev.s3.amazonaws.com/public/author/${data.attributes.picture}`
           }),
           social: `@${data.attributes.name}`,
           wallet: null,

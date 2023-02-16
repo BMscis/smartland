@@ -112,7 +112,7 @@ class Createpage extends Component {
             "alternativeText": e.name,
             "width": e.image.size,
             "height": e.image.size,
-            "url": `https://sse11114-dev.s3.amazonaws.com/public/artist/${e.image.name}`
+            "url": `https://smartseat-storage-43b115d3225556-dev.s3.amazonaws.com/public/artist/${e.image.name}`
           })
         })
         artists.push(art)
@@ -138,7 +138,7 @@ class Createpage extends Component {
         alternativeText: "",
         width: 720,
         height: 720,
-        url: `https://sse11114-dev.s3.amazonaws.com/public/preview_image/${this.state.saveImage.name}`
+        url: `https://smartseat-storage-43b115d3225556-dev.s3.amazonaws.com/public/preview_image/${this.state.saveImage.name}`
       }),
       "chain": "ALGO",
       "owner": new OWNER({

@@ -50,7 +50,9 @@ function Logintwo() {
     const userInfo = auth.getUserInfo()
   }
   useEffect(() => {
+    console.log({user})
     if (!user) return
+    console.log({user})
     redirectUser(`/Author/${user.user}`)
   }, [user])
   useEffect(() => {

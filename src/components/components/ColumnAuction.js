@@ -223,7 +223,7 @@ export default class Responsive extends Component {
   return (
     <div className='row'>
     <GlobalStyles />
-        {this.state.nfts.map( (nft, index) => (
+        {this.state.nfts && this.state.nfts.map( (nft, index) => (
             <div key={index} className="d-item col-lg-3 col-md-6 col-sm-6 col-xs-12 mb-4">
                 <div className="nft__item m-0">
                     <div className="author_list_pp">
@@ -257,7 +257,7 @@ export default class Responsive extends Component {
                 </div>
             </div>  
         ))}
-        { this.state.nfts.length !== this.dummyData.length &&
+        {this.state.nfts &&  this.state.nfts.length !== this.dummyData.length &&
             <div className='col-lg-12'>
                 <div className="spacer-single"></div>
                 <span onClick={() => this.loadMore()} className="btn-main lead m-auto">Load More</span>

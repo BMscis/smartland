@@ -1,4 +1,4 @@
-import { ModelInit, MutableModel } from "@aws-amplify/datastore";
+import { ModelInit, MutableModel, __modelMeta__, ManagedIdentifier } from "@aws-amplify/datastore";
 // @ts-ignore
 import { LazyLoading, LazyLoadingDisabled } from "@aws-amplify/datastore";
 
@@ -150,19 +150,11 @@ export declare type AUTHORSALE = LazyLoading extends LazyLoadingDisabled ? Eager
 
 export declare const AUTHORSALE: (new (init: ModelInit<AUTHORSALE>) => AUTHORSALE)
 
-type NFTSMetaData = {
-  readOnlyFields: 'createdAt' | 'updatedAt';
-}
-
-type AUTHORMetaData = {
-  readOnlyFields: 'createdAt' | 'updatedAt';
-}
-
-type EVENTSMetaData = {
-  readOnlyFields: 'createdAt' | 'updatedAt';
-}
-
 type EagerNFTS = {
+  readonly [__modelMeta__]: {
+    identifier: ManagedIdentifier<NFTS, 'id'>;
+    readOnlyFields: 'createdAt' | 'updatedAt';
+  };
   readonly id: string;
   readonly title?: string | null;
   readonly status?: Nftstatus | keyof typeof Nftstatus | null;
@@ -189,6 +181,10 @@ type EagerNFTS = {
 }
 
 type LazyNFTS = {
+  readonly [__modelMeta__]: {
+    identifier: ManagedIdentifier<NFTS, 'id'>;
+    readOnlyFields: 'createdAt' | 'updatedAt';
+  };
   readonly id: string;
   readonly title?: string | null;
   readonly status?: Nftstatus | keyof typeof Nftstatus | null;
@@ -216,11 +212,15 @@ type LazyNFTS = {
 
 export declare type NFTS = LazyLoading extends LazyLoadingDisabled ? EagerNFTS : LazyNFTS
 
-export declare const NFTS: (new (init: ModelInit<NFTS, NFTSMetaData>) => NFTS) & {
-  copyOf(source: NFTS, mutator: (draft: MutableModel<NFTS, NFTSMetaData>) => MutableModel<NFTS, NFTSMetaData> | void): NFTS;
+export declare const NFTS: (new (init: ModelInit<NFTS>) => NFTS) & {
+  copyOf(source: NFTS, mutator: (draft: MutableModel<NFTS>) => MutableModel<NFTS> | void): NFTS;
 }
 
 type EagerAUTHOR = {
+  readonly [__modelMeta__]: {
+    identifier: ManagedIdentifier<AUTHOR, 'id'>;
+    readOnlyFields: 'createdAt' | 'updatedAt';
+  };
   readonly id: string;
   readonly user?: string | null;
   readonly followers?: number | null;
@@ -236,6 +236,10 @@ type EagerAUTHOR = {
 }
 
 type LazyAUTHOR = {
+  readonly [__modelMeta__]: {
+    identifier: ManagedIdentifier<AUTHOR, 'id'>;
+    readOnlyFields: 'createdAt' | 'updatedAt';
+  };
   readonly id: string;
   readonly user?: string | null;
   readonly followers?: number | null;
@@ -252,11 +256,15 @@ type LazyAUTHOR = {
 
 export declare type AUTHOR = LazyLoading extends LazyLoadingDisabled ? EagerAUTHOR : LazyAUTHOR
 
-export declare const AUTHOR: (new (init: ModelInit<AUTHOR, AUTHORMetaData>) => AUTHOR) & {
-  copyOf(source: AUTHOR, mutator: (draft: MutableModel<AUTHOR, AUTHORMetaData>) => MutableModel<AUTHOR, AUTHORMetaData> | void): AUTHOR;
+export declare const AUTHOR: (new (init: ModelInit<AUTHOR>) => AUTHOR) & {
+  copyOf(source: AUTHOR, mutator: (draft: MutableModel<AUTHOR>) => MutableModel<AUTHOR> | void): AUTHOR;
 }
 
 type EagerEVENTS = {
+  readonly [__modelMeta__]: {
+    identifier: ManagedIdentifier<EVENTS, 'id'>;
+    readOnlyFields: 'createdAt' | 'updatedAt';
+  };
   readonly id: string;
   readonly AWSUSER?: string | null;
   readonly WALLETADDRESS?: string | null;
@@ -275,6 +283,10 @@ type EagerEVENTS = {
 }
 
 type LazyEVENTS = {
+  readonly [__modelMeta__]: {
+    identifier: ManagedIdentifier<EVENTS, 'id'>;
+    readOnlyFields: 'createdAt' | 'updatedAt';
+  };
   readonly id: string;
   readonly AWSUSER?: string | null;
   readonly WALLETADDRESS?: string | null;
@@ -294,6 +306,6 @@ type LazyEVENTS = {
 
 export declare type EVENTS = LazyLoading extends LazyLoadingDisabled ? EagerEVENTS : LazyEVENTS
 
-export declare const EVENTS: (new (init: ModelInit<EVENTS, EVENTSMetaData>) => EVENTS) & {
-  copyOf(source: EVENTS, mutator: (draft: MutableModel<EVENTS, EVENTSMetaData>) => MutableModel<EVENTS, EVENTSMetaData> | void): EVENTS;
+export declare const EVENTS: (new (init: ModelInit<EVENTS>) => EVENTS) & {
+  copyOf(source: EVENTS, mutator: (draft: MutableModel<EVENTS>) => MutableModel<EVENTS> | void): EVENTS;
 }

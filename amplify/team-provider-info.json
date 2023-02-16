@@ -1,28 +1,34 @@
 {
   "dev": {
     "awscloudformation": {
-      "AuthRoleName": "amplify-smartseatticketing-dev-11114-authRole",
-      "UnauthRoleArn": "arn:aws:iam::040732739798:role/amplify-smartseatticketing-dev-11114-unauthRole",
-      "AuthRoleArn": "arn:aws:iam::040732739798:role/amplify-smartseatticketing-dev-11114-authRole",
+      "AuthRoleName": "amplify-smartseat-dev-225556-authRole",
+      "UnauthRoleArn": "arn:aws:iam::608953594342:role/amplify-smartseat-dev-225556-unauthRole",
+      "AuthRoleArn": "arn:aws:iam::608953594342:role/amplify-smartseat-dev-225556-authRole",
       "Region": "us-east-1",
-      "DeploymentBucketName": "amplify-smartseatticketing-dev-11114-deployment",
-      "UnauthRoleName": "amplify-smartseatticketing-dev-11114-unauthRole",
-      "StackName": "amplify-smartseatticketing-dev-11114",
-      "StackId": "arn:aws:cloudformation:us-east-1:040732739798:stack/amplify-smartseatticketing-dev-11114/22386340-4c0d-11ed-a20e-0ea4d4bf90fb",
-      "AmplifyAppId": "dkdptqpyzupxk"
+      "DeploymentBucketName": "amplify-smartseat-dev-225556-deployment",
+      "UnauthRoleName": "amplify-smartseat-dev-225556-unauthRole",
+      "StackName": "amplify-smartseat-dev-225556",
+      "StackId": "arn:aws:cloudformation:us-east-1:608953594342:stack/amplify-smartseat-dev-225556/c611fe40-ad6a-11ed-b561-0efbf5e9dc77",
+      "AmplifyAppId": "d18hi2x9k74ykw"
     },
     "categories": {
       "auth": {
-        "smartseatticketing": {}
-      },
-      "storage": {
-        "sse": {}
+        "SmartSeatAuth": {}
       },
       "function": {
-        "S3Triggerbb449fd6": {
-          "deploymentBucketName": "amplify-smartseatticketing-dev-11114-deployment",
-          "s3Key": "amplify-builds/S3Triggerbb449fd6-55614a51767662327263-build.zip"
+        "SmartSeatAuthCustomMessage": {
+          "REDIRECTURL": "n",
+          "EMAILSUBJECT": "SmartSeat Access Code",
+          "EMAILMESSAGE": "Click this link",
+          "deploymentBucketName": "amplify-smartseat-dev-225556-deployment",
+          "s3Key": "amplify-builds/SmartSeatAuthCustomMessage-484f4243426b6b6f696c-build.zip"
         }
+      },
+      "api": {
+        "smartseat": {}
+      },
+      "storage": {
+        "s3smartseatstorage43b115d3": {}
       }
     }
   }

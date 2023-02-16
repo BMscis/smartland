@@ -206,7 +206,7 @@ componentDidMount(){
  render() {
   return (
     <div className='row'>
-        {this.state.nfts.length > 0 &&
+        {this.state.nfts && this.state.nfts.length > 0 &&
         this.state.nfts.map( (nft, index) => (
             <div key={index} className="d-item col-lg-3 col-md-6 col-sm-6 col-xs-12 mb-4">
                 <div className="nft__item m-0">

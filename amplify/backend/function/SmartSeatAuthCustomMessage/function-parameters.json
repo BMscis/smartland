@@ -1,0 +1,26 @@
+{
+  "trigger": true,
+  "modules": [
+    "verification-link"
+  ],
+  "parentResource": "SmartSeatAuth",
+  "functionName": "SmartSeatAuthCustomMessage",
+  "resourceName": "SmartSeatAuthCustomMessage",
+  "parentStack": "auth",
+  "triggerEnvs": [
+    {
+      "key": "RESOURCENAME",
+      "value": "resourceName"
+    }
+  ],
+  "triggerDir": "C:\\snapshot\\repo\\build\\node_modules\\@aws-amplify\\amplify-category-auth\\provider-utils\\awscloudformation\\triggers\\CustomMessage",
+  "triggerTemplate": "CustomMessage.json.ejs",
+  "triggerEventPath": "CustomMessage.event.json",
+  "roleName": "SmartSeatAuthCustomMessage",
+  "skipEdit": true,
+  "REDIRECTURL": "n",
+  "EMAILSUBJECT": "SmartSeat Access Code",
+  "EMAILMESSAGE": "Click this link",
+  "RESOURCENAME": "resourceName",
+  "enableCors": false
+}

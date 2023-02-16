@@ -1,35 +1,24 @@
 export type AmplifyDependentResourcesAttributes = {
     "api": {
-        "smartseatticketing": {
+        "smartseat": {
             "GraphQLAPIKeyOutput": "string",
             "GraphQLAPIIdOutput": "string",
             "GraphQLAPIEndpointOutput": "string"
         }
     },
-    "auth": {
-        "smartseatticketing": {
-            "IdentityPoolId": "string",
-            "IdentityPoolName": "string",
-            "UserPoolId": "string",
-            "UserPoolArn": "string",
-            "UserPoolName": "string",
-            "AppClientIDWeb": "string",
-            "AppClientID": "string",
-            "CreatedSNSRole": "string"
+    "function": {
+        "SmartSeatAuthCustomMessage": {
+            "Name": "string",
+            "Arn": "string",
+            "LambdaExecutionRole": "string",
+            "Region": "string",
+            "LambdaExecutionRoleArn": "string"
         }
     },
     "storage": {
-        "sse": {
+        "s3smartseatstorage43b115d3": {
             "BucketName": "string",
             "Region": "string"
-        }
-    },
-    "function": {
-        "S3Triggerbb449fd6": {
-            "Name": "string",
-            "Arn": "string",
-            "Region": "string",
-            "LambdaExecutionRole": "string"
         }
     }
 }
