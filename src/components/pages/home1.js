@@ -7,7 +7,7 @@ import AuthorList from '../components/authorList';
 import Footer from '../components/footer';
 import { createGlobalStyle } from 'styled-components';
 import Reveal from 'react-awesome-reveal';
-import { keyframes } from "@emotion/react";
+import { keyframes } from '@emotion/react';
 
 const fadeInUp = keyframes`
   0% {
@@ -70,90 +70,99 @@ const GlobalStyles = createGlobalStyle`
   }
 `;
 
-const homethree= () => (
+const homethree = () => (
   <div>
-  <GlobalStyles />
-      <section className="jumbotron no-bg" style={{backgroundImage: `url(${'./img/background/7.jpg'})`}}>
-        <div className='container'>
-          <div className='row align-items-center'>
-            <div className='col-lg-6'>
-                <div className="spacer-single"></div>
-                <Reveal className='onStep' keyframes={fadeInUp} delay={0} duration={600} triggerOnce>
-                <h6 className=""><span className="text-uppercase color">SmartSeat - Ticketing Market</span></h6>
-                </Reveal>
-                <div className="spacer-10"></div>
-                <Reveal className='onStep' keyframes={fadeInUp} delay={300} duration={600} triggerOnce>
-                <h1 className="">Be the master of your own tickets.</h1>
-                </Reveal>
-                <Reveal className='onStep' keyframes={fadeInUp} delay={600} duration={600} triggerOnce>
-                <p className=" lead">
-                SmartSeat aims to satisfy ticket buyers, artists, and venues by embodying leading-edge blockchain technology. SmartSeat offers safeguarded ticketing for live events protected by blockchain technology, which in turn eradicates scalpers and increases revenue for artists, assuring fair prices for attendees.
-                </p>
-                </Reveal>
-                <div className="spacer-10"></div>
-                <Reveal className='onStep' keyframes={fadeInUp} delay={800} duration={900} triggerOnce>
-                <span onClick={()=> window.open("/#", "_self")} className="btn-main lead">Explore</span>
-                <div className="mb-sm-30"></div>
-                </Reveal>
-                <div className="spacer-double"></div>
-            </div>
-             <div className='col-lg-6 px-0'>
-               <SliderCarousel/>
-             </div>
+    <GlobalStyles />
+    <section
+      className="jumbotron no-bg"
+      style={{ backgroundImage: `url(${'./img/background/7.jpg'})` }}
+    >
+      <div className="container">
+        <div className="row align-items-center">
+          <div className="col-lg-6">
+            <div className="spacer-single"></div>
+            <Reveal className="onStep" keyframes={fadeInUp} delay={0} duration={600} triggerOnce>
+              <h6 className="">
+                <span className="text-uppercase color">SmartSeat - Ticketing Market</span>
+              </h6>
+            </Reveal>
+            <div className="spacer-10"></div>
+            <Reveal className="onStep" keyframes={fadeInUp} delay={300} duration={600} triggerOnce>
+              <h1 className="">Be the master of your own tickets.</h1>
+            </Reveal>
+            <Reveal className="onStep" keyframes={fadeInUp} delay={600} duration={600} triggerOnce>
+              <p className=" lead">
+                SmartSeat aims to satisfy ticket buyers, artists, and venues by embodying
+                leading-edge blockchain technology. SmartSeat offers safeguarded ticketing for live
+                events protected by blockchain technology, which in turn eradicates scalpers and
+                increases revenue for artists, assuring fair prices for attendees.
+              </p>
+            </Reveal>
+            <div className="spacer-10"></div>
+            <Reveal className="onStep" keyframes={fadeInUp} delay={800} duration={900} triggerOnce>
+              <span onClick={() => window.open('/#', '_self')} className="btn-main lead">
+                Explore
+              </span>
+              <div className="mb-sm-30"></div>
+            </Reveal>
+            <div className="spacer-double"></div>
+          </div>
+          <div className="col-lg-6 px-0">
+            <SliderCarousel />
           </div>
         </div>
-      </section>
-
-      <section className='container'>
-      <div className='container'>
-        <div className='row'>
-          <div className='col-lg-12'>
-              <h2 className='style-2'>New Items</h2>
-          </div>
-        </div>
-       <ColumnNew/>
       </div>
-      </section>
+    </section>
 
-      <section className='container no-top'>
-        <div className='row'>
-          <div className='col-lg-12'>
-              <h2 className='style-2'>Hot Collections</h2>
+    <section className="container">
+      <div className="container">
+        <div className="row">
+          <div className="col-lg-12">
+            <h2 className="style-2">New Items</h2>
           </div>
         </div>
-        <div className='container no-top'>
-          <div className='row'>
-            <div className='col-lg-12 px-0'>
-              <CarouselCollection/>
-            </div>
-          </div>
-        </div>
-      </section>
+        <ColumnNew />
+      </div>
+    </section>
 
-      <section className='container no-top'>
-        <div className='row'>
-          <div className='col-lg-12'>
-              <h2 className='style-2'>Top Seller</h2>
-          </div>
-          <div className='col-lg-12'>
-            <AuthorList/>
+    <section className="container no-top">
+      <div className="row">
+        <div className="col-lg-12">
+          <h2 className="style-2">Hot Collections</h2>
+        </div>
+      </div>
+      <div className="container no-top">
+        <div className="row">
+          <div className="col-lg-12 px-0">
+            <CarouselCollection />
           </div>
         </div>
-      </section>
+      </div>
+    </section>
 
-      <section className='container no-top'>
-        <div className='row'>
-          <div className='col-lg-12'>
-              <h2 className='style-2'>Create and sell</h2>
-          </div>
+    <section className="container no-top">
+      <div className="row">
+        <div className="col-lg-12">
+          <h2 className="style-2">Top Seller</h2>
         </div>
-        <div className='container px-0'>
-          <FeatureBox/>
+        <div className="col-lg-12">
+          <AuthorList />
         </div>
-      </section>
+      </div>
+    </section>
+
+    <section className="container no-top">
+      <div className="row">
+        <div className="col-lg-12">
+          <h2 className="style-2">Create and sell</h2>
+        </div>
+      </div>
+      <div className="container px-0">
+        <FeatureBox />
+      </div>
+    </section>
 
     <Footer />
-
   </div>
 );
 export default homethree;

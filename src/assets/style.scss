@@ -110,7 +110,6 @@ section{
 .wraper{
   padding: 0;
   display: block;
-  overflow: hidden;
   width: 100%;
   .wraperitem{
     width: 100%;
@@ -717,10 +716,10 @@ p.lead {
     color: rgba(255, 255, 255, .5);
     padding-left: 2px;
     font-size: 8px;
-    top: -1px;
     position: absolute;
-    top: 6px;
+    top: 50%;
     right: 5px;
+    transform: translateY(-50%);
     border: none;
   }
   .item-dropdown{
@@ -772,7 +771,7 @@ p.lead {
 /*navbar*/
 .navbar {
     padding: 0;
-    position: absolute;
+    position: sticky;
     top: 0;
     left: 0;
     width: 100%;
@@ -795,9 +794,10 @@ p.lead {
       }
     }
     .w-100-nav{
+      flex: 1 1 auto;
       margin: 0;
-      width: 100%;
-      justify-content: left;
+      display: flex;
+      justify-content: space-between;
       align-items: center;
       flex-wrap: nowrap;
     }
@@ -805,7 +805,6 @@ p.lead {
       position: relative;
       font-size: 14px;
       font-weight: 800;
-      padding: 0 5px 0 0;
       text-decoration: none !important;
       color: $white;
       outline: none;
@@ -837,7 +836,7 @@ p.lead {
     .navbar-item {
         position: relative;
         display: inline-block;
-        padding: 30px 6px;
+        padding: 0 6px;
         height: max-content;
         cursor: default;
         .lines{
@@ -860,47 +859,46 @@ p.lead {
       margin-left: auto;
     }
     .logo{
-      width: max-content;
-      padding-right:30px;
-      .navbar-item {
-        position: relative;
-        top: 2px;
-        left: 0px;
-        padding: 0;
-        width: max-content;
-        border-bottom: none;
-        a{
-          padding: 0;
-          .d-3{
-            display: none;
-          }
-        }
-      }
+      height: 4.5rem;
     }
-    .menu{
-      display: flex;
+    .desktop-menu{
+      display: inline-flex;
       justify-content: flex-end;
     }
     .nav-icon{
       display: none;
     }
     @media only screen and (max-width: 1199px) { 
+      #myHeader .container {
+        position: relative;
+      }
+      .desktop-menu {
+        display: none;
+      }
+      .mobile-menu{
+        position: absolute;
+        left: 0;
+        top: 100%;
+        width: 100%;
+        display: block;
+        padding: 0 30px;
+        background: #212428;
+        border-top: 1px solid rgba(255, 255, 255, 0.8);
+        box-shadow: 0 5px 5px 0 rgb(10 10 10 / 80%);
+      }
+      .w-100-nav {
+        flex-wrap: wrap;
+      }
+      .nav-icon {
+        display: block;
+        cursor: pointer;
+        z-index: 9999;
+      }
       .m-2-hor {
           padding: 0px 2%;
       }
-      .menu{
-        display: block;
-        padding: 15px 0 10px;
-      }
       &.navbar {
-        position: relative;
-        .logo{
-          display: inline-block;
-        }
         .search{
-          display: inline-block;
-          position: relative;
-          top: -9px;
           #quick_search{
             width: 100%;
           }
@@ -908,7 +906,8 @@ p.lead {
         .mainside{
           position: absolute;
           right: 60px;
-          top: 28px;
+          top: 50%;
+          transform: translateY(-50%);
         }
         .dropdown-custom.btn{
           color: $white;
@@ -920,29 +919,9 @@ p.lead {
           }
         }
       }
-      .w-100-nav{
-        display: block;
-        padding: 20px 2%;
-      }
       .navbar-item {
         display: block;
-        padding: 15px 0;
-        border-bottom: 1px solid rgba(0,0,0,.1);
-      }
-      .nav-icon {
-      position: absolute;
-      top: 35px;
-      right: 25px;
-      display: block;
-      width: 20px;
-      height: 10px;
-      padding-top: 13px;
-      line-height: 0;
-      cursor: pointer;
-      background: none;
-      border: none;
-      padding: 0;
-      z-index: 9999;
+        padding: 0;
       }
       .bg-nav-icon{ 
       width:32px; 
@@ -985,6 +964,22 @@ p.lead {
       //  &.sticky {
       //  position: absolute !important;
       //  }
+      
+      .dropdown-toggle--open::after {
+        content: "\f077"
+      }
+      .dropdown-custom.btn {
+        padding: 15px 20px 15px 0;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.3);
+      }
+      .dropdown-link {
+        padding: 15px 0;
+      }
+      .navbar-item:last-child {
+        .dropdown-custom.btn {
+          border-bottom: none;
+        }
+      }
      }
      @media only screen and (max-width: 641px) {
       &.navbar{
@@ -997,16 +992,12 @@ p.lead {
             padding: 4px 10px;
           }
         }
-        .logo{
-          img{
-            width: 90%;
-          }
-        }
+      }
+      .logo{
+        height: 3.5rem;
       }
     }
     &.sticky {
-      position: fixed;
-      top: 0;
       width: 100%;
       background: #212428;
       border-bottom: 0;
@@ -4293,18 +4284,17 @@ img.img-rounded{
     position: relative;
     width: 100%;
     inset: unset;
-    padding-top: 10px;
+    padding: 10px 0 15px;
     border: 0;
     background: none;
     box-shadow: unset;
     .dropdown{
       a{
         color: $white !important;
-        padding: 10px 10px 10px 0px;
+        padding: 10px 20px;
         width: 100%;
         text-align: left;
-        left: 10px;
-        border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+        border-bottom: 1px solid rgba(0, 0, 0, 0.5);
       }
     }
   }

@@ -1,6 +1,6 @@
 import React from 'react';
 import Reveal from 'react-awesome-reveal';
-import { keyframes } from "@emotion/react";
+import { keyframes } from '@emotion/react';
 
 const fadeInUp = keyframes`
   0% {
@@ -26,60 +26,92 @@ const inline = keyframes`
    }
 `;
 
-const slidermainparticle= () => (
- <div className="container">
+const slidermainparticle = () => (
+  <div className="container">
     <div className="row align-items-center">
-          <div className="col-md-6">
-              <div className="spacer-single"></div>
-              <h6> <span className="text-uppercase color">SmartSeat - Ticketing Market</span></h6>
-              <Reveal className='onStep' keyframes={fadeInUp} delay={300} duration={900} triggerOnce>
-              <h1 className="col-white">Be the master of your own tickets.</h1>
-              </Reveal>
-              <Reveal className='onStep' keyframes={fadeInUp} delay={600} duration={900} triggerOnce>
-              <p className="lead col-white">
-              SmartSeat aims to satisfy ticket buyers, artists, and venues by embodying leading-edge blockchain technology. SmartSeat offers safeguarded ticketing for live events protected by blockchain technology, which in turn eradicates scalpers and increases revenue for artists, assuring fair prices for attendees.
-              </p>
-              </Reveal>
-              <div className="spacer-10"></div>
-              <Reveal className='onStep d-inline' keyframes={inline} delay={800} duration={900} triggerOnce>
-              <span onClick={()=> window.open("#", "_self")} className="btn-main inline lead">Explore</span>
-              <div className="mb-sm-30"></div>
-              </Reveal>
+      <div className="col-md-6">
+        <div className="spacer-single"></div>
+        <h6>
+          {' '}
+          <span className="text-uppercase color">SmartSeat - Ticketing Market</span>
+        </h6>
+        <Reveal className="onStep" keyframes={fadeInUp} delay={300} duration={900} triggerOnce>
+          <h1 className="col-white">Be the master of your own tickets.</h1>
+        </Reveal>
+        <Reveal className="onStep" keyframes={fadeInUp} delay={600} duration={900} triggerOnce>
+          <p className="lead col-white">
+            SmartSeat aims to satisfy ticket buyers, artists, and venues by embodying leading-edge
+            blockchain technology. SmartSeat offers safeguarded ticketing for live events protected
+            by blockchain technology, which in turn eradicates scalpers and increases revenue for
+            artists, assuring fair prices for attendees.
+          </p>
+        </Reveal>
+        <div className="spacer-10"></div>
+        <Reveal
+          className="onStep d-inline"
+          keyframes={inline}
+          delay={800}
+          duration={900}
+          triggerOnce
+        >
+          <span onClick={() => window.open('#', '_self')} className="btn-main inline lead">
+            Explore
+          </span>
+          <div className="mb-sm-30"></div>
+        </Reveal>
 
-              <Reveal className='onStep d-inline' keyframes={inline} delay={900} duration={1200} triggerOnce>
-              <div className="row">
-                  <div className="spacer-single"></div>
-                  <div className="row">
-                          <div className="col-lg-4 col-md-6 col-sm-4 mb30">
-                              <div className="de_count text-left">
-                                  <h3><span>94215</span></h3>
-                                  <h5 className="id-color">Collectibles</h5>
-                              </div>
-                          </div>
-
-                          <div className="col-lg-4 col-md-6 col-sm-4 mb30">
-                              <div className="de_count text-left">
-                                  <h3><span>27</span>k</h3>
-                                  <h5 className="id-color">Auctions</h5>
-                              </div>
-                          </div>
-
-                          <div className="col-lg-4 col-md-6 col-sm-4 mb30">
-                              <div className="de_count text-left">
-                                  <h3><span>4</span>k</h3>
-                                  <h5 className="id-color">NFT Artist</h5>
-                              </div>
-                          </div>
-                      </div>
+        <Reveal
+          className="onStep d-inline"
+          keyframes={inline}
+          delay={900}
+          duration={1200}
+          triggerOnce
+        >
+          <div className="row">
+            <div className="spacer-single"></div>
+            <div className="row">
+              <div className="col-lg-4 col-md-6 col-sm-4 mb30">
+                <div className="de_count text-left">
+                  <h3>
+                    <span>94215</span>
+                  </h3>
+                  <h5 className="id-color">Collectibles</h5>
+                </div>
               </div>
-              </Reveal>
+
+              <div className="col-lg-4 col-md-6 col-sm-4 mb30">
+                <div className="de_count text-left">
+                  <h3>
+                    <span>27</span>k
+                  </h3>
+                  <h5 className="id-color">Auctions</h5>
+                </div>
+              </div>
+
+              <div className="col-lg-4 col-md-6 col-sm-4 mb30">
+                <div className="de_count text-left">
+                  <h3>
+                    <span>4</span>k
+                  </h3>
+                  <h5 className="id-color">NFT Artist</h5>
+                </div>
+              </div>
+            </div>
           </div>
-          <div className="col-md-6 xs-hide">
-          <Reveal className='onStep d-inline' keyframes={inline} delay={300} duration={1200} triggerOnce>
-              <img src="./img/misc/women-with-vr.png" className="img-fluid" alt=""/>
-          </Reveal>
-          </div>
+        </Reveal>
+      </div>
+      <div className="col-md-6 xs-hide">
+        <Reveal
+          className="onStep d-inline"
+          keyframes={inline}
+          delay={300}
+          duration={1200}
+          triggerOnce
+        >
+          <img src="./img/misc/women-with-vr.png" className="img-fluid" alt="" />
+        </Reveal>
       </div>
     </div>
+  </div>
 );
 export default slidermainparticle;
